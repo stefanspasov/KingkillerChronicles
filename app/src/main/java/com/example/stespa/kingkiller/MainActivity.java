@@ -1,10 +1,10 @@
 package com.example.stespa.kingkiller;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements CharacterAdapter.CharacterAdapterOnClickHandler {
 
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements CharacterAdapter.
 
     @Override
     public void onClick(String characterName) {
-        Toast.makeText(this, characterName, Toast.LENGTH_SHORT).show();
+        Intent startDetailActivity = new Intent(this, DetailActivity.class);
+        startDetailActivity.putExtra(Intent.EXTRA_TEXT, characterName);
+        startActivity(startDetailActivity);
     }
 }
